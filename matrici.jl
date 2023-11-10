@@ -4,14 +4,6 @@ function minor(m, i, j)
     m[1:end.!=i, 1:end.!=j]
 end
 
-function tr(a)
-    n = size(a)
-
-    for i in a
-
-    end
-end
-
 function laplace(a, i=1)
     if size(a)[1] != size(a)[2]
         return "Matrix is not squared"
