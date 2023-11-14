@@ -34,7 +34,15 @@ function gauss(a)
         m[j, :] -= m[j, 1] * m[1, :]
     end
 
-    print(m)
-
     return reduce(*, res * gauss(minor(m, 1, 1)))
+end
+
+function matrix_mul(a, b)
+    a_s = size(a)
+    b_s = size(b)
+
+    r = zeros(Int8, a_s[0], b_s[1])
+
+    # for i = 0:
+
 end
