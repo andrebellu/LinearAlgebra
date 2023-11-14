@@ -4,10 +4,14 @@ function minor(m, i, j)
     m[1:end.!=i, 1:end.!=j]
 end
 
-function laplace(a, i=1)
+function check_squared(a)
     if size(a)[1] != size(a)[2]
         return "Matrix is not squared"
     end
+end
+
+function laplace(a, i=1)
+    check_squared(a)
 
     if size(a) == (1, 1)
         return a[1, 1]
@@ -17,9 +21,7 @@ function laplace(a, i=1)
 end
 
 function gauss(a)
-    if size(a)[1] != size(a)[2]
-        return "Matrix is not squared"
-    end
+    check_squared(a)
 
     m = copy(a)
     if size(m)[1] == 1
@@ -32,7 +34,7 @@ function gauss(a)
         m[j, :] -= m[j, 1] * m[1, :]
     end
 
+    print(m)
+
     return reduce(*, res * gauss(minor(m, 1, 1)))
 end
-
-
